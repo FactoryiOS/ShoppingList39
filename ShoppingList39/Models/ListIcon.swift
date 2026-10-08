@@ -7,8 +7,11 @@
 
 import SwiftUI
 
-/// Хранить в модели: `var icon: ListIcon = .cart`, показать: `icon.image`,
-/// все для экрана выбора: `ForEach(ListIcon.allCases) { $0.image }`.
+/// Иконка списка покупок.
+/// Используется для хранения выбранного варианта в модели списка, например:
+/// `var icon: ListIcon = .cart`.
+/// Использование: для отображения — `icon.image`,
+/// для построения интерфейса выбора — `ListIcon.allCases`.
 enum ListIcon: String, CaseIterable, Identifiable, Codable {
     case snowflake
     case airplane

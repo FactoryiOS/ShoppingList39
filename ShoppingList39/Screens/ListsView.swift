@@ -11,9 +11,8 @@ struct ListsView: View {
     @State private var lists: [String] = []
     
     var body: some View {
-        
         NavigationView {
-            ZStack{
+            ZStack {
                 if lists.isEmpty {
                     EmptyPlaceholderView(
                         imageName: "notepadWithGlasses",
@@ -37,21 +36,21 @@ struct ListsView: View {
                         .font(.title1Semibold)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {}) {
-                            Image(systemName: "ellipsis")
-                                .rotationEffect(.degrees(90))
-                                    .font(.system(size: 20, weight: .semibold))
-                                    .foregroundColor(.primary)
-                        }
-                    }
+                    Button(action: {}, label: {
+                        Image(systemName: "ellipsis")
+                            .rotationEffect(.degrees(90))
+                            .font(.system(size: 20, weight: .semibold))
+                            .foregroundColor(.primary)
+                    })
                 }
             }
         }
+    }
     func createNewList() {
         print("Создать список")
     }
 }
-    
-    #Preview {
-        ListsView()
-    }
+
+#Preview {
+    ListsView()
+}

@@ -37,11 +37,11 @@ struct ShoppingListView: View {
                     HStack(spacing: 6) {
                         Button(action: {
                             // Действие "Назад"
-                        }) {
+                        }, label: {
                             Image("chevronLeft")
                                 .renderingMode(.template)
                                 .foregroundColor(.primary)
-                        }
+                        })
                         Text(listName)
                             .font(.title1Semibold)
                     }
@@ -50,18 +50,18 @@ struct ShoppingListView: View {
                     HStack(spacing: 16) {
                         Button(action: {
                             // действие "Поиск"
-                        }) {
+                        }, label: {
                             Image(systemName: "magnifyingglass")
                                 .foregroundColor(.primary)
-                        }
+                        })
                         Button(action: {
                             
-                        }) {
+                        }, label: {
                             Image(systemName: "ellipsis")
                                 .rotationEffect(.degrees(90))
                                 .font(.system(size: 20, weight: .semibold))
                                 .foregroundColor(.primary)
-                        }
+                        })
                     }
                 }
             }

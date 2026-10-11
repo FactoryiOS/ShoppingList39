@@ -20,9 +20,9 @@ struct EmptyPlaceholderView: View {
             
             Image(imageName)
             
-            VStack(spacing: 8) {
+            VStack(spacing: 12) {
                 Text(title)
-                    .font(.headlineSemibold)
+                    .font(.largeTitleRegular)
                     .multilineTextAlignment(.center)
                 
                 Text(subtitle)
@@ -32,11 +32,14 @@ struct EmptyPlaceholderView: View {
             Spacer()
             Button(action: action) {
                 Text(buttonTitle)
-                    .font(.largeTitleRegular)
+                    .font(.headlineSemibold)
+                    .foregroundColor(.white)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
                     .background(Color.uncategorizedTurquoise)
-                    .cornerRadius(12)
+                    .cornerRadius(24)
             }
-            .padding(.horizontal, 24)
+            .padding(.horizontal, 16)
             .padding(.bottom, 20)
         }
         .background(Color(.systemBackground))

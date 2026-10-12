@@ -39,9 +39,9 @@ struct ListIconPicker: View {
         } label: {
             icon.image
                 .font(.title2Regular)
-                .foregroundStyle(isSelected ? Color.backgroundDark : Color.uncategorizedWhite)
+                .foregroundStyle(isSelected ? Color.backgroundDark : iconColor)
                 .frame(width: 48, height: 48)
-                .background(isSelected ? selectionColor : circleColor, in: Circle())
+                .background(isSelected ? selectionColor : .backgroundIconBackground, in: Circle())
         }
         .buttonStyle(.plain)
         .animation(.easeInOut(duration: 0.2), value: isSelected)
@@ -52,9 +52,9 @@ struct ListIconPicker: View {
     private var cardColor: Color {
         colorScheme == .dark ? .backgroundDark : .uncategorizedWhite
     }
-
-    private var circleColor: Color {
-        colorScheme == .dark ? .systemsDarkGrey : .backgroundIconBackground
+    
+    private var iconColor: Color {
+        colorScheme == .dark ? .backgroundDark : .uncategorizedWhite
     }
 }
 

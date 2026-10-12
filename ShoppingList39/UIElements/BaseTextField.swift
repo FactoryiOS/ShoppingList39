@@ -32,7 +32,7 @@ struct BaseTextField: View {
                 }
             }
             .padding(.horizontal, 16)
-            .frame(height: 48)
+            .frame(height: 54)
             .background(fieldColor, in: RoundedRectangle(cornerRadius: 12))
             .overlay {
                 RoundedRectangle(cornerRadius: 12)

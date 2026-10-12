@@ -12,15 +12,13 @@ struct BaseButton: View {
     var isActive = true
     let action: () -> Void
 
-    @Environment(\.colorScheme) private var colorScheme
-
     var body: some View {
         Button(action: action) {
             Text(title)
                 .font(.headlineSemibold)
                 .foregroundStyle(isActive ? Color.uncategorizedWhite : Color.greyHint)
                 .frame(maxWidth: .infinity)
-                .frame(height: 48)
+                .frame(height: 44)
                 .background(isActive ? Color.uncategorizedTurquoise : .greyButton, in: Capsule())
         }
         .buttonStyle(BaseButtonStyle())

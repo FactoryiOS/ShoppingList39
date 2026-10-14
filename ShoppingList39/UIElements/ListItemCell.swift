@@ -7,9 +7,12 @@ struct ListItemCell: View {
     @Environment(\.colorScheme) private var colorScheme
 
     var body: some View {
-        HStack(spacing: 12) {
-            icon
-            title
+        HStack(spacing: 8) {
+            HStack(spacing: 12) {
+                icon
+                title
+            }
+
             progress
         }
         .foregroundStyle(.primary)

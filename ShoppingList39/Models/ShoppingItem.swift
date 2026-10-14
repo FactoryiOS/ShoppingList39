@@ -7,14 +7,14 @@ final class ShoppingItem {
     var id: UUID
     var name: String
     var quantity: Double
-    var unit: String
+    var unit: ShoppingUnit
     var isPurchased: Bool
 
     init(
         id: UUID = UUID(),
         name: String,
         quantity: Double,
-        unit: String,
+        unit: ShoppingUnit,
         isPurchased: Bool = false
     ) {
         self.id = id
@@ -28,7 +28,7 @@ final class ShoppingItem {
         ShoppingItem(
             name: "Чайник",
             quantity: 2,
-            unit: "шт."
+            unit: .pieces
         )
     }
 }

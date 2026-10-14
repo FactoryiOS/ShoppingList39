@@ -17,7 +17,7 @@ struct ShoppingItemCell: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .fixedSize(horizontal: false, vertical: true)
 
-            Text("\(item.quantity.formatted()) \(item.unit)")
+            Text("\(item.quantity.formatted()) \(item.unit.rawValue)")
                 .fixedSize()
         }
         .font(.bodyRegular)

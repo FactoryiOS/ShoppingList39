@@ -20,7 +20,7 @@ enum AppColor: String, CaseIterable, Identifiable {
 }
 
 struct ColorPickerBlock: View {
-    @Binding var selection: AppColor
+    @Binding var selection: AppColor?
     let selectionColor: Color
     @Environment(\.colorScheme) private var colorScheme
     
@@ -31,11 +31,12 @@ struct ColorPickerBlock: View {
             Text("Выберите цвет")
                 .font(.calloutRegular)
                 .foregroundStyle(.primary)
-            LazyVGrid(columns: columns, spacing: 16) {
+            HStack(spacing: 12) {
                 ForEach(AppColor.allCases) { appColor in
                     colorButton(appColor)
                 }
             }
+            .frame(maxWidth: .infinity)
         }
         .padding(12)
         .background(cardColor, in: RoundedRectangle(cornerRadius: 12))
@@ -48,15 +49,16 @@ struct ColorPickerBlock: View {
             ZStack {
                 Circle()
                     .fill(appColor.color)
-                    .frame(width: 44, height: 44)
+                    .frame(width: 40, height: 40)
                 
                 if isSelected {
                     Circle()
                         .stroke(selectionColor, lineWidth: 2)
-                        .frame(width: 54, height: 54)
+                        .frame(width: 52, height: 52)
                 }
             }
         }
+        .frame(width: 54, height: 54)
         .buttonStyle(.plain)
         .animation(.snappy(duration: 0.1), value: isSelected)
     }
@@ -64,24 +66,24 @@ struct ColorPickerBlock: View {
         colorScheme == .dark ? .backgroundDark : .uncategorizedWhite
     }
 }
+
+private struct ColorPickerBlockPreview: View {
+    @State private var color: AppColor?
     
-    private struct ColorPickerBlockPreview: View {
-        @State private var color: AppColor = .blue
-        
-        var body: some View {
-            ColorPickerBlock(selection: $color, selectionColor: .additionalBlue)
-                .padding()
-                .frame(maxHeight: .infinity, alignment: .top)
-                .background(Color(.systemGroupedBackground))
-        }
+    var body: some View {
+        ColorPickerBlock(selection: $color, selectionColor: .uncategorizedTurquoise)
+            .padding()
+            .frame(maxHeight: .infinity, alignment: .top)
+            .background(Color(.systemGroupedBackground))
     }
-    
-    #Preview("Light") {
-        ColorPickerBlockPreview()
-            .preferredColorScheme(.light)
-    }
-    
-    #Preview("Dark") {
-        ColorPickerBlockPreview()
-            .preferredColorScheme(.dark)
-    }
+}
+
+#Preview("Light") {
+    ColorPickerBlockPreview()
+        .preferredColorScheme(.light)
+}
+
+#Preview("Dark") {
+    ColorPickerBlockPreview()
+        .preferredColorScheme(.dark)
+}

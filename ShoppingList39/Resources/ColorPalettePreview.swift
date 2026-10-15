@@ -17,8 +17,7 @@ private struct ColorPalettePreview: View {
         ("background", [
             ("dark", .backgroundDark),
             ("light", .backgroundLight),
-            ("icon background", .backgroundIconBackground),
-            ("launch", .backgroundLaunch)
+            ("icon background", .backgroundIconBackground)
         ]),
         ("Grey", [
             ("button", .greyButton),

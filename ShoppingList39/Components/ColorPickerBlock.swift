@@ -7,20 +7,8 @@
 
 import SwiftUI
 
-enum AppColor: String, CaseIterable, Identifiable {
-    case blue = "additionalBlue"
-    case green = "additionalGreen"
-    case purple = "additionalPurple"
-    case pink = "additionalRed"
-    case yellow = "additionalYellow"
-    
-    var id: String { rawValue }
-    
-    var color: Color { Color(rawValue) }
-}
-
 struct ColorPickerBlock: View {
-    @Binding var selection: AppColor?
+    @Binding var selection: ListColor?
     let selectionColor: Color
     @Environment(\.colorScheme) private var colorScheme
     
@@ -32,7 +20,7 @@ struct ColorPickerBlock: View {
                 .font(.calloutRegular)
                 .foregroundStyle(.primary)
             HStack(spacing: 12) {
-                ForEach(AppColor.allCases) { appColor in
+                ForEach(ListColor.allCases) { appColor in
                     colorButton(appColor)
                 }
             }
@@ -41,14 +29,14 @@ struct ColorPickerBlock: View {
         .padding(12)
         .background(cardColor, in: RoundedRectangle(cornerRadius: 12))
     }
-    private func colorButton(_ appColor: AppColor) -> some View {
-        let isSelected = appColor == selection
+    private func colorButton(_ color: ListColor) -> some View {
+        let isSelected = color == selection
         return Button {
-            selection = appColor
+            selection = color
         } label: {
             ZStack {
                 Circle()
-                    .fill(appColor.color)
+                    .fill(color.color)
                     .frame(width: 40, height: 40)
                 
                 if isSelected {
@@ -68,7 +56,7 @@ struct ColorPickerBlock: View {
 }
 
 private struct ColorPickerBlockPreview: View {
-    @State private var color: AppColor?
+    @State private var color: ListColor?
     
     var body: some View {
         ColorPickerBlock(selection: $color, selectionColor: .uncategorizedTurquoise)

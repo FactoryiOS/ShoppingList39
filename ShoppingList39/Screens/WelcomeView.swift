@@ -9,6 +9,7 @@ import SwiftUI
 
 struct WelcomeView: View {
     let onStart: () -> Void
+
     @Environment(\.colorScheme) private var colorScheme
 
     var body: some View {

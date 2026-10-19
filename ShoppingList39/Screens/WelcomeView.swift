@@ -34,7 +34,7 @@ struct WelcomeView: View {
                 .multilineTextAlignment(.center)
             }
             .frame(maxWidth: .infinity)
-            .padding(.top, 39.3)
+            .padding(.top, 40)
 
             Spacer()
 

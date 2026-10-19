@@ -11,36 +11,30 @@ struct EmptyStateConfig {
     let imageName: String
     let title: String
     let subtitle: String
-    let buttonTitle: String
     
     static let lists = EmptyStateConfig(
         imageName: "notepadWithGlasses",
         title: "Давайте спланируем покупки!",
-        subtitle: "Создайте свой первый список",
-        buttonTitle: "Создать список"
+        subtitle: "Создайте свой первый список"
     )
     
     static let shoppingList = EmptyStateConfig(
         imageName: "shoppingBags",
         title: "Давайте спланируем покупки!",
-        subtitle: "Начните добавлять товары",
-        buttonTitle: "Добавить товар"
+        subtitle: "Начните добавлять товары"
     )
 }
 
 struct EmptyStateView: View {
     let config: EmptyStateConfig
-    let action: () -> Void
     
     var body: some View {
-        VStack(spacing: 24) {
+        VStack(spacing: 28) {
             Spacer()
             
             Image(config.imageName)
             
-            Spacer().frame(height: 40)
-            
-            VStack(spacing: 8) {
+            VStack(spacing: 4) {
                 Text(config.title)
                     .font(.title3Semibold)
                     .multilineTextAlignment(.center)
@@ -50,29 +44,14 @@ struct EmptyStateView: View {
                     .multilineTextAlignment(.center)
             }
             Spacer()
-            Button(action: action) {
-                Text(config.buttonTitle)
-                    .font(.headlineSemibold)
-                    .foregroundColor(.white)
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 14)
-                    .background(Color.uncategorizedTurquoise)
-                    .cornerRadius(24)
-            }
-            .padding(.horizontal, 16)
-            .padding(.bottom, 20)
         }
         .background(Color(.systemBackground))
     }
 }
 #Preview("Списки") {
-    EmptyStateView(config: .lists) {
-        print("Создать список")
-    }
+    EmptyStateView(config: .lists)
 }
 
 #Preview("Список покупок") {
-    EmptyStateView(config: .shoppingList) {
-        print("Добавить товар")
-    }
+    EmptyStateView(config: .shoppingList)
 }

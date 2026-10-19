@@ -14,7 +14,9 @@ struct RootView: View {
         if appState.hasSeenWelcome {
             ContentView()
         } else {
-            // TODO: Add welcome screen navigation after mirging WelcomeView
+            WelcomeView {
+                appState.completeWelcome()
+            }
         }
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ListIconPicker: View {
-    @Binding var selection: ListIcon
+    @Binding var selection: ListIcon?
     let selectionColor: Color
 
     @Environment(\.colorScheme) private var colorScheme
@@ -61,7 +61,7 @@ struct ListIconPicker: View {
 // MARK: - Preview
 
 private struct ListIconPickerPreview: View {
-    @State private var icon: ListIcon = .snowflake
+    @State private var icon: ListIcon? = .snowflake
 
     var body: some View {
         ListIconPicker(selection: $icon, selectionColor: .additionalBlue)

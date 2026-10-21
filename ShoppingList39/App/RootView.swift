@@ -7,16 +7,25 @@
 
 import SwiftUI
 
+private enum AppStorageKeys {
+    static let hasSeenWelcome = "hasSeenWelcome"
+}
+
 struct RootView: View {
-    @State private var appState = AppState()
+    @AppStorage(AppStorageKeys.hasSeenWelcome)
+    private var hasSeenWelcome = false
 
     var body: some View {
-        if appState.hasSeenWelcome {
+        if hasSeenWelcome {
             ContentView()
+                .transition(.opacity)
         } else {
             WelcomeView {
-                appState.completeWelcome()
+                withAnimation {
+                    hasSeenWelcome = true
+                }
             }
+            .transition(.opacity)
         }
     }
 }

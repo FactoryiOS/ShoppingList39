@@ -51,3 +51,45 @@ final class ListItem {
         static let purchasedCount = 10
     }
 }
+
+// MARK: - Mocks
+
+extension ListItem {
+    static var mocks: [ListItem] {
+        [
+            mock,
+            makeMock(
+                name: "Кошке",
+                icon: .pawprint,
+                totalCount: 4,
+                purchasedCount: 1
+            ),
+            makeMock(
+                name: "Вечеринка малого",
+                icon: .gamepad,
+                totalCount: 20,
+                purchasedCount: 9
+            ),
+            makeMock(name: "Продукты", icon: .cart)
+        ]
+    }
+
+    private static func makeMock(
+        name: String,
+        icon: ListIcon,
+        totalCount: Int = 0,
+        purchasedCount: Int = 0
+    ) -> ListItem {
+        let items = (0..<totalCount).map { index in
+            let item = ShoppingItem.mock
+            item.isPurchased = index < purchasedCount
+            return item
+        }
+
+        return ListItem(
+            name: name,
+            icon: icon,
+            items: items
+        )
+    }
+}

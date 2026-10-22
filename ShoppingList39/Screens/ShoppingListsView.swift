@@ -106,8 +106,15 @@ struct ShoppingListsView: View {
     }
 }
 
-#Preview {
+#Preview("Светлая тема")  {
     NavigationStack {
         ShoppingListsView(shoppingListsName: "Новый год")
     }
+    .preferredColorScheme(.light)
+}
+#Preview("Темная тема")  {
+    NavigationStack {
+        ShoppingListsView(shoppingListsName: "Новый год")
+    }
+    .preferredColorScheme(.dark)
 }

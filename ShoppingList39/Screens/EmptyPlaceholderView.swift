@@ -45,7 +45,6 @@ struct EmptyStateView: View {
             }
             Spacer()
         }
-        .background(Color(.systemBackground))
     }
 }
 #Preview("Списки") {

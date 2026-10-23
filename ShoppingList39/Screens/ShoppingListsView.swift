@@ -60,9 +60,10 @@ struct ShoppingListsView: View {
                 }
             }
             .listStyle(.plain)
+            .listRowSpacing(12)
             
             BaseButton(title: "Добавить товар") {
-                print("Добавить товар")
+                // TODO: Добавить реализацию добавления товара
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 16)
@@ -80,9 +81,9 @@ struct ShoppingListsView: View {
                 }
             }
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button(action: {
-                    
-                }) {
+                Button {
+                    // TODO: Добавить действие меню
+                } label: {
                     Image(systemName: "ellipsis.circle")
                         .font(.system(size: 20, weight: .regular))
                         .foregroundColor(.primary)
@@ -91,17 +92,18 @@ struct ShoppingListsView: View {
         }
     }
     private func togglePurchase(for item: ShoppingItem) {
-        item.isPurchased.toggle()
         withAnimation {
-            items = items
+            item.isPurchased.toggle()
         }
     }
     
     private func deleteItem(_ item: ShoppingItem) {
+        // TODO: Добавить действие  удаления
         print("Удален товар: \(item.name)")
     }
     
     private func editItem(_ item: ShoppingItem) {
+        // TODO: Добавить действие  изменения
         print("Редактирование товара: \(item.name)")
     }
 }

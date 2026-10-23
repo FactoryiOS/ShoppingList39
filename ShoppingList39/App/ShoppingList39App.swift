@@ -11,7 +11,7 @@ import SwiftUI
 struct ShoppingList39App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView(observed: .init(lists: ListItem.mocks))
         }
     }
 }

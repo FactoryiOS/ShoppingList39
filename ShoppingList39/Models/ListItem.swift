@@ -65,7 +65,7 @@ extension ListItem {
                 purchasedCount: 1
             ),
             makeMock(
-                name: "Вечеринка малого",
+                name: "Вечеринка",
                 icon: .gamepad,
                 totalCount: 20,
                 purchasedCount: 9

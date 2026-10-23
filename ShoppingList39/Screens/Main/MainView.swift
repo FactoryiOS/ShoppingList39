@@ -38,7 +38,7 @@ struct MainView: View {
     @ViewBuilder
     private var content: some View {
         if observed.isEmpty {
-            Text("Placeholder") // (заменить на плейсхолдер из #8) (todo)
+            EmptyStateView(config: .lists)
         } else {
             listView
         }

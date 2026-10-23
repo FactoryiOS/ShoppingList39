@@ -22,33 +22,29 @@ struct ShoppingItemEditorView: View {
     }
     
     private let mode: Mode
-    private let onSave: (Values) -> Void
 
-    @State private var formState: FormState
+    @State private var observed: Observed
     @State private var isUnitPickerExpanded = false
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) private var colorScheme
 
     init(mode: Mode = .create, onSave: @escaping (Values) -> Void) {
         self.mode = mode
-        self.onSave = onSave
-        _formState = State(initialValue: FormState(mode: mode))
+        _observed = State(initialValue: Observed(mode: mode, onSave: onSave))
     }
 
     var body: some View {
-        @Bindable var formState = formState
-
         VStack(spacing: 8) {
             header
 
             ScrollView {
                 VStack(spacing: 20) {
-                    BaseTextField(placeholder: "Название товара", text: $formState.name)
+                    BaseTextField(placeholder: "Название товара", text: $observed.name)
                         .textInputAutocapitalization(.sentences)
                         .submitLabel(.done)
 
                     HStack(alignment: .top, spacing: 16) {
-                        BaseTextField(placeholder: "Количество", text: $formState.quantity)
+                        BaseTextField(placeholder: "Количество", text: $observed.quantity)
                             .keyboardType(.decimalPad)
 
                         unitPicker
@@ -79,13 +75,17 @@ struct ShoppingItemEditorView: View {
                 .font(.headlineSemibold)
                 .frame(maxWidth: .infinity)
 
-            Button("Готово", action: handleSave)
+            Button("Готово") {
+                if observed.handleSave() {
+                    dismiss()
+                }
+            }
                 .font(.headlineSemibold)
-                .foregroundStyle(formState.isSaveEnabled
+                .foregroundStyle(observed.isSaveEnabled
                                  ? Color.uncategorizedTurquoise
                                  : Color.greyHint
                 )
-                .disabled(!formState.isSaveEnabled)
+                .disabled(!observed.isSaveEnabled)
         }
         .buttonStyle(.plain)
         .frame(minHeight: 44)
@@ -98,7 +98,7 @@ struct ShoppingItemEditorView: View {
                 isUnitPickerExpanded.toggle()
             } label: {
                 HStack(spacing: 8) {
-                    Text(formState.unit.rawValue)
+                    Text(observed.unit.rawValue)
                         .font(.bodyRegular)
                         .foregroundStyle(.primary)
 
@@ -125,7 +125,7 @@ struct ShoppingItemEditorView: View {
         VStack(spacing: 4) {
             ForEach(ShoppingUnit.allCases, id: \.self) { unit in
                 Button {
-                    formState.unit = unit
+                    observed.unit = unit
                     isUnitPickerExpanded = false
                 } label: {
                     HStack {
@@ -137,11 +137,11 @@ struct ShoppingItemEditorView: View {
                         Circle()
                             .strokeBorder(lineWidth: 2)
                             .overlay {
-                                if formState.unit == unit {
+                                if observed.unit == unit {
                                     Circle().padding(5)
                                 }
                             }
-                            .foregroundStyle(formState.unit == unit
+                            .foregroundStyle(observed.unit == unit
                                              ? Color.uncategorizedTurquoise
                                              : Color.greyButton)
                             .frame(width: 24, height: 24)
@@ -171,12 +171,6 @@ struct ShoppingItemEditorView: View {
         colorScheme == .dark
             ? .backgroundSheetDark
             : .backgroundLight
-    }
-
-    private func handleSave() {
-        guard let values = formState.values else { return }
-        onSave(values)
-        dismiss()
     }
 }
 

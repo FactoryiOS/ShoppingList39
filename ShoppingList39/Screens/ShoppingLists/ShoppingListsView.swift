@@ -8,29 +8,16 @@
 import SwiftUI
 
 struct ShoppingListsView: View {
-    let shoppingListsName: String
-    
-    @State private var items: [ShoppingItem] = [
-        ShoppingItem.mock,
-        ShoppingItem.mock,
-        ShoppingItem.mock
-    ]
-    
-    @State private var searchText = ""
-    var filteredItems: [ShoppingItem] {
-        if searchText.isEmpty {
-            return items
-        } else {
-            return items.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
-        }
-    }
+    let shoppingListsName: ListItem
+
+@State private var observed = ShoppingListsViewObserved()
     
     var body: some View {
         VStack(spacing: 0) {
             List {
-                ForEach(filteredItems) { item in
+                ForEach(observed.filteredItems) { item in
                     ShoppingItemCell(item: item) {
-                        togglePurchase(for: item)
+                        observed.togglePurchase(for: item)
                     }
                     .listRowSeparator(.hidden)
                     
@@ -45,13 +32,13 @@ struct ShoppingListsView: View {
                     
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
                         Button(role: .destructive) {
-                            deleteItem(item)
+                            observed.deleteItem(item)
                         } label: {
                             Label("Удалить", systemImage: "trash")
                         }
                         
                         Button {
-                            editItem(item)
+                            observed.editItem(item)
                         } label: {
                             Label("Изменить", systemImage: "square.and.pencil")
                         }
@@ -71,12 +58,11 @@ struct ShoppingListsView: View {
         
         .navigationTitle("")
         .navigationBarTitleDisplayMode(.inline)
-        .searchable(text: $searchText, prompt: "Поиск")
+        .searchable(text: $observed.searchText, prompt: "Поиск")
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 HStack(spacing: 6) {
-                    Image(systemName: "chevron.left")
-                    Text(shoppingListsName)
+                    Text(shoppingListsName.name)
                         .font(.headlineSemibold)
                 }
             }
@@ -91,32 +77,17 @@ struct ShoppingListsView: View {
             }
         }
     }
-    private func togglePurchase(for item: ShoppingItem) {
-        withAnimation {
-            item.isPurchased.toggle()
-        }
-    }
-    
-    private func deleteItem(_ item: ShoppingItem) {
-        // TODO: Добавить действие  удаления
-        print("Удален товар: \(item.name)")
-    }
-    
-    private func editItem(_ item: ShoppingItem) {
-        // TODO: Добавить действие  изменения
-        print("Редактирование товара: \(item.name)")
-    }
 }
 
 #Preview("Светлая тема")  {
     NavigationStack {
-        ShoppingListsView(shoppingListsName: "Новый год")
+        ShoppingListsView(shoppingListsName: .mock)
     }
     .preferredColorScheme(.light)
 }
 #Preview("Темная тема")  {
     NavigationStack {
-        ShoppingListsView(shoppingListsName: "Новый год")
+        ShoppingListsView(shoppingListsName: .mock)
     }
     .preferredColorScheme(.dark)
 }

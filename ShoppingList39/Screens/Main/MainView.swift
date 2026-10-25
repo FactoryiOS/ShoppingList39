@@ -48,7 +48,7 @@ struct MainView: View {
         List {
             ForEach(observed.lists) { list in
                 ListItemCell(item: list)
-                    .listRowInsets(EdgeInsets(top: 4, leading: 16, bottom: 4, trailing: 16))
+                    .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
                     .listRowSeparator(.hidden)
                     .listRowBackground(Color.clear)
                     .swipeActions(edge: .trailing, allowsFullSwipe: false) {
@@ -57,6 +57,7 @@ struct MainView: View {
             }
         }
         .listStyle(.plain)
+        .listRowSpacing(12)
         .scrollContentBackground(.hidden)
     }
 
@@ -91,7 +92,7 @@ struct MainView: View {
             observed.handleCreateList()
         }
         .padding(.horizontal, 16)
-        .padding(.bottom, 8)
+        .padding(.bottom, 20)
     }
 
     private var menuButton: some View {

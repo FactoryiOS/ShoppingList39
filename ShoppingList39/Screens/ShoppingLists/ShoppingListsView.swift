@@ -53,7 +53,7 @@ struct ShoppingListsView: View {
                 // TODO: Добавить реализацию добавления товара
             }
             .padding(.horizontal, 16)
-            .padding(.vertical, 16)
+            .padding(.vertical, 20)
         }
         
         .navigationTitle("")

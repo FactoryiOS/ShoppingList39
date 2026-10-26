@@ -14,7 +14,7 @@ import Observation
 /// @Environment(Router.self) private var router
 ///
 /// router.push(.shoppingList(list))
-/// router.showModal(.itemEditor(.create))
+/// router.showModal(.itemEditor(.create, list: list))
 /// ```
 @MainActor
 @Observable

@@ -3,9 +3,16 @@ import SwiftUI
 /// Форма создания и редактирования товара.
 struct ShoppingItemEditorView: View {
     
-    enum Mode {
+    enum Mode: Identifiable {
         case create
         case edit(ShoppingItem)
+
+        var id: String {
+            switch self {
+            case .create: "create"
+            case .edit(let item): item.id.uuidString
+            }
+        }
 
         var title: String {
             switch self {
@@ -28,7 +35,7 @@ struct ShoppingItemEditorView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) private var colorScheme
 
-    init(mode: Mode = .create, onSave: @escaping (Values) -> Void) {
+    init(mode: Mode = .create, onSave: @escaping (Values) throws -> Void) {
         self.mode = mode
         _observed = State(initialValue: Observed(mode: mode, onSave: onSave))
     }
@@ -61,6 +68,7 @@ struct ShoppingItemEditorView: View {
         .presentationDragIndicator(.visible)
         .presentationDetents([.large])
         .presentationCornerRadius(16)
+        .errorAlert("Не удалось сохранить товар", state: observed.error)
     }
 
     private var header: some View {
@@ -186,8 +194,7 @@ private struct ShoppingItemEditorPreview: View {
             isPresented = true
         }
         .sheet(isPresented: $isPresented) {
-            ShoppingItemEditorView(mode: mode)
-            { _ in }
+            ShoppingItemEditorView(mode: mode) { _ in }
                 .preferredColorScheme(colorScheme)
         }
     }

@@ -17,7 +17,7 @@ struct RootView: View {
 
     var body: some View {
         if hasSeenWelcome {
-            ContentView()
+            MainView()
                 .transition(.opacity)
         } else {
             WelcomeView {

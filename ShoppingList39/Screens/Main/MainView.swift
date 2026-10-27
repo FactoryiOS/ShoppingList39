@@ -27,7 +27,7 @@ struct MainView: View {
                 .navigationTitle("Мои списки")
                 .toolbar {
                     ToolbarItem(placement: .topBarTrailing) {
-                        menuButton
+                        ThemeMenu()
                     }
                 }
         }
@@ -94,16 +94,7 @@ struct MainView: View {
         .padding(.horizontal, 16)
         .padding(.bottom, 20)
     }
-
-    private var menuButton: some View {
-        Button {
-            observed.handleMenuTap()
-        } label: {
-            Image(systemName: "ellipsis.circle")
-        }
-        .foregroundStyle(.primary)
-    }
-
+    
     // MARK: - Colors
 
     private var backgroundColor: Color {

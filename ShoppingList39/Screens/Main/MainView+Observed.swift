@@ -38,9 +38,5 @@ extension MainView {
         func handleDelete(_ list: ListItem) {
             print("Удалить: \(list.name)")
         }
-        
-        func handleMenuTap() {
-            print("Открыть меню")
-        }
     }
 }

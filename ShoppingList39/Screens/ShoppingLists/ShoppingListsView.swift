@@ -11,6 +11,7 @@ struct ShoppingListsView: View {
     let shoppingListsName: ListItem
 
 @State private var observed = ShoppingListsViewObserved()
+    @Environment(Router.self) private var router
     
     var body: some View {
         VStack(spacing: 0) {
@@ -38,7 +39,7 @@ struct ShoppingListsView: View {
                         }
                         
                         Button {
-                            observed.editItem(item)
+                            router.showModal(.itemEditor(.edit(item)))
                         } label: {
                             Label("Изменить", systemImage: "square.and.pencil")
                         }
@@ -50,7 +51,7 @@ struct ShoppingListsView: View {
             .listRowSpacing(12)
             
             BaseButton(title: "Добавить товар") {
-                // TODO: Добавить реализацию добавления товара
+                router.showModal(.itemEditor(.create))
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 20)
@@ -83,11 +84,13 @@ struct ShoppingListsView: View {
     NavigationStack {
         ShoppingListsView(shoppingListsName: .mock)
     }
+    .environment(Router())
     .preferredColorScheme(.light)
 }
 #Preview("Темная тема")  {
     NavigationStack {
         ShoppingListsView(shoppingListsName: .mock)
     }
+    .environment(Router())
     .preferredColorScheme(.dark)
 }

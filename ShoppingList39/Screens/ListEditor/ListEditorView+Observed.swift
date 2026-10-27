@@ -8,7 +8,7 @@
 import SwiftUI
 
 extension ListEditorView {
-    enum Mode {
+    enum Mode: Hashable {
         case create
         case edit(name: String, color: ListColor, icon: ListIcon)
     }

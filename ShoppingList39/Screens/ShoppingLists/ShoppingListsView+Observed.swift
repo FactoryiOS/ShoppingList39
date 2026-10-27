@@ -42,4 +42,3 @@ class ShoppingListsViewObserved {
         print("Редактирование товара: \(item.name)")
     }
 }
-

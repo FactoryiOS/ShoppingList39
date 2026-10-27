@@ -186,8 +186,7 @@ private struct ShoppingItemEditorPreview: View {
             isPresented = true
         }
         .sheet(isPresented: $isPresented) {
-            ShoppingItemEditorView(mode: mode)
-            { _ in }
+            ShoppingItemEditorView(mode: mode) { _ in }
                 .preferredColorScheme(colorScheme)
         }
     }

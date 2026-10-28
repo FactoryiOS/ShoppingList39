@@ -2,6 +2,7 @@ import Foundation
 import Observation
 
 extension ShoppingItemEditorView {
+    @MainActor
     @Observable
     final class Observed {
         var name: String

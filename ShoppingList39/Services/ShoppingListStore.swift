@@ -29,14 +29,11 @@ final class ShoppingListStore {
         color: ListColor
     ) throws {
         let name = try validatedName(name)
-        let previousValues = (list.name, list.icon, list.color)
-        try save(restoring: {
-            (list.name, list.icon, list.color) = previousValues
-        }, changes: {
+        try save {
             list.name = name
             list.icon = icon
             list.color = color
-        })
+        }
     }
 
     @discardableResult
@@ -65,12 +62,9 @@ final class ShoppingListStore {
     }
 
     func deleteList(_ list: ListItem) throws {
-        let previousItems = list.items
-        try save(restoring: {
-            list.items = previousItems
-        }, changes: {
+        try save {
             context.delete(list)
-        })
+        }
     }
 
     @discardableResult
@@ -84,13 +78,10 @@ final class ShoppingListStore {
         try validateQuantity(quantity)
         let item = ShoppingItem(name: name, quantity: quantity, unit: unit)
         item.sortOrder = (list.items.map(\.sortOrder).max() ?? -1) + 1
-        let previousItems = list.items
-        try save(restoring: {
-            list.items = previousItems
-        }, changes: {
+        try save {
             context.insert(item)
             list.items.append(item)
-        })
+        }
         return item
     }
 
@@ -102,59 +93,42 @@ final class ShoppingListStore {
     ) throws {
         let name = try validatedName(name)
         try validateQuantity(quantity)
-        let previousValues = (item.name, item.quantity, item.unit)
-        try save(restoring: {
-            (item.name, item.quantity, item.unit) = previousValues
-        }, changes: {
+        try save {
             item.name = name
             item.quantity = quantity
             item.unit = unit
-        })
+        }
     }
 
     func deleteItem(_ item: ShoppingItem) throws {
-        let list = item.list
-        let previousItems = list?.items
-        try save(restoring: {
-            item.list = list
-            if let list, let previousItems {
-                list.items = previousItems
-            }
-        }, changes: {
+        try save {
             item.list?.items.removeAll { $0.id == item.id }
             context.delete(item)
-        })
+        }
     }
 
     func deletePurchasedItems(from list: ListItem) throws {
-        let previousItems = list.items
-        let purchasedItems = previousItems.filter(\.isPurchased)
+        let purchasedItems = list.items.filter(\.isPurchased)
         guard !purchasedItems.isEmpty else { return }
-        try save(restoring: {
-            list.items = previousItems
-        }, changes: {
+        try save {
             list.items.removeAll(where: \.isPurchased)
             for item in purchasedItems {
                 context.delete(item)
             }
-        })
+        }
     }
 
     func togglePurchased(_ item: ShoppingItem) throws {
-        let wasPurchased = item.isPurchased
-        try save(restoring: {
-            item.isPurchased = wasPurchased
-        }, changes: {
+        try save {
             item.isPurchased.toggle()
-        })
+        }
     }
 
-    private func save(restoring restore: () -> Void = {}, changes: () -> Void) throws {
+    private func save(changes: () -> Void) throws {
         changes()
         do {
             try context.save()
         } catch {
-            restore()
             context.rollback()
             throw error
         }

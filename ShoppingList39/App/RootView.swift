@@ -17,8 +17,10 @@ struct RootView: View {
 
     var body: some View {
         if hasSeenWelcome {
-            MainView()
-                .transition(.opacity)
+            RouterView {
+                MainView()
+            }
+            .transition(.opacity)
         } else {
             WelcomeView {
                 withAnimation {

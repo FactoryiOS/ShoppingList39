@@ -23,14 +23,6 @@ extension MainView {
             self.lists = lists
         }
 
-        func handleCreateList() {
-            print("Создать список")
-        }
-
-        func handleEdit(_ list: ListItem) {
-            print("Редактировать: \(list.name)")
-        }
-
         func handleCopy(_ list: ListItem) {
             print("Копировать: \(list.name)")
         }

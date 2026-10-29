@@ -14,7 +14,7 @@ struct ShoppingItemEditorView: View {
             }
         }
 
-        var title: String {
+        var title: LocalizedStringKey {
             switch self {
             case .create: "Создание товара"
             case .edit: "Редактировать"
@@ -38,6 +38,7 @@ struct ShoppingItemEditorView: View {
     init(
         mode: Mode = .create,
         existingItems: [ShoppingItem] = [],
+        knownNames: [String] = [],
         onSave: @escaping (Values) throws -> Void
     ) {
         self.mode = mode
@@ -45,6 +46,7 @@ struct ShoppingItemEditorView: View {
             initialValue: Observed(
                 mode: mode,
                 existingItems: existingItems,
+                knownNames: knownNames,
                 onSave: onSave
             )
         )
@@ -56,13 +58,20 @@ struct ShoppingItemEditorView: View {
 
             ScrollView {
                 VStack(spacing: 20) {
-                    BaseTextField(
-                        placeholder: "Название товара",
-                        text: $observed.name,
-                        errorMessage: observed.nameError
-                    )
-                    .textInputAutocapitalization(.sentences)
-                    .submitLabel(.done)
+                    VStack(spacing: 8) {
+                        BaseTextField(
+                            placeholder: "Название товара",
+                            text: $observed.name,
+                            errorMessage: observed.nameError
+                        )
+                        .textInputAutocapitalization(.sentences)
+                        .submitLabel(.done)
+
+                        if !observed.suggestions.isEmpty {
+                            suggestionsList
+                        }
+                    }
+                    .animation(.easeInOut(duration: 0.2), value: observed.suggestions)
 
                     HStack(alignment: .top, spacing: 16) {
                         BaseTextField(placeholder: "Количество", text: $observed.quantity)
@@ -114,22 +123,45 @@ struct ShoppingItemEditorView: View {
         .padding(.horizontal, 16)
     }
 
+    private var suggestionsList: some View {
+        VStack(spacing: 0) {
+            ForEach(Array(observed.suggestions.enumerated()), id: \.element) { index, suggestion in
+                Button {
+                    observed.handleSelectSuggestion(suggestion)
+                } label: {
+                    Text(suggestion)
+                        .font(.bodyRegular)
+                        .foregroundStyle(.primary)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .frame(height: 44)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+
+                if index < observed.suggestions.count - 1 {
+                    Divider()
+                        .overlay(Color.greyStrokePanelIOS)
+                }
+            }
+        }
+        .padding(.horizontal, 16)
+        .background(unitPickerBackground, in: RoundedRectangle(cornerRadius: 12))
+    }
+
     private var unitPicker: some View {
         VStack(spacing: 8) {
             Button {
                 isUnitPickerExpanded.toggle()
             } label: {
                 HStack(spacing: 8) {
-                    Text(observed.unit.rawValue)
+                    Text(observed.unit.title)
                         .font(.bodyRegular)
                         .foregroundStyle(.primary)
 
                     Spacer(minLength: 0)
 
-                    if isUnitPickerExpanded {
-                        Image(systemName: "chevron.down")
-                            .foregroundStyle(Color.greyHint)
-                    }
+                    Image(systemName: "chevron.up.chevron.down")
+                        .foregroundStyle(Color.greyHint)
                 }
                 .padding(.horizontal, 16)
                 .frame(height: 54)
@@ -151,7 +183,7 @@ struct ShoppingItemEditorView: View {
                     isUnitPickerExpanded = false
                 } label: {
                     HStack {
-                        Text(unit.rawValue)
+                        Text(unit.title)
                             .font(.bodyRegular)
 
                         Spacer(minLength: 8)

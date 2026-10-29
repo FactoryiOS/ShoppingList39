@@ -55,7 +55,8 @@ struct RouterView<Root: View>: View {
         case .itemEditor(let mode, let list):
             ShoppingItemEditorView(
                 mode: mode,
-                existingItems: list.items
+                existingItems: list.items,
+                knownNames: knownItemNames()
             ) { values in
                 let store = ShoppingListStore(context: modelContext)
                 switch mode {
@@ -66,5 +67,11 @@ struct RouterView<Root: View>: View {
                 }
             }
         }
+    }
+
+    /// Названия всех товаров из всех списков — для подсказок при вводе.
+    private func knownItemNames() -> [String] {
+        let items = (try? modelContext.fetch(FetchDescriptor<ShoppingItem>())) ?? []
+        return items.map(\.name)
     }
 }

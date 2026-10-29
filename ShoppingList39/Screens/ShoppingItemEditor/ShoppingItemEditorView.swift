@@ -35,9 +35,19 @@ struct ShoppingItemEditorView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.colorScheme) private var colorScheme
 
-    init(mode: Mode = .create, onSave: @escaping (Values) throws -> Void) {
+    init(
+        mode: Mode = .create,
+        existingItems: [ShoppingItem] = [],
+        onSave: @escaping (Values) throws -> Void
+    ) {
         self.mode = mode
-        _observed = State(initialValue: Observed(mode: mode, onSave: onSave))
+        _observed = State(
+            initialValue: Observed(
+                mode: mode,
+                existingItems: existingItems,
+                onSave: onSave
+            )
+        )
     }
 
     var body: some View {
@@ -46,9 +56,13 @@ struct ShoppingItemEditorView: View {
 
             ScrollView {
                 VStack(spacing: 20) {
-                    BaseTextField(placeholder: "Название товара", text: $observed.name)
-                        .textInputAutocapitalization(.sentences)
-                        .submitLabel(.done)
+                    BaseTextField(
+                        placeholder: "Название товара",
+                        text: $observed.name,
+                        errorMessage: observed.nameError
+                    )
+                    .textInputAutocapitalization(.sentences)
+                    .submitLabel(.done)
 
                     HStack(alignment: .top, spacing: 16) {
                         BaseTextField(placeholder: "Количество", text: $observed.quantity)
@@ -187,6 +201,7 @@ struct ShoppingItemEditorView: View {
 private struct ShoppingItemEditorPreview: View {
     let mode: ShoppingItemEditorView.Mode
     let colorScheme: ColorScheme
+    var existingItems: [ShoppingItem] = []
     @State private var isPresented = true
 
     var body: some View {
@@ -194,7 +209,10 @@ private struct ShoppingItemEditorPreview: View {
             isPresented = true
         }
         .sheet(isPresented: $isPresented) {
-            ShoppingItemEditorView(mode: mode) { _ in }
+            ShoppingItemEditorView(
+                mode: mode,
+                existingItems: existingItems
+            ) { _ in }
                 .preferredColorScheme(colorScheme)
         }
     }
@@ -215,5 +233,13 @@ private struct ShoppingItemEditorPreview: View {
     ShoppingItemEditorPreview(
         mode: .edit(ShoppingItem.mock),
         colorScheme: .dark
+    )
+}
+
+#Preview("Дубль") {
+    ShoppingItemEditorPreview(
+        mode: .edit(ShoppingItem.mock),
+        colorScheme: .light,
+        existingItems: [ShoppingItem.mock]
     )
 }

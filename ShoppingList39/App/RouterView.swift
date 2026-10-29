@@ -53,7 +53,10 @@ struct RouterView<Root: View>: View {
     private func modalView(for modal: Modal) -> some View {
         switch modal {
         case .itemEditor(let mode, let list):
-            ShoppingItemEditorView(mode: mode) { values in
+            ShoppingItemEditorView(
+                mode: mode,
+                existingItems: list.items
+            ) { values in
                 let store = ShoppingListStore(context: modelContext)
                 switch mode {
                 case .create:

@@ -2,11 +2,13 @@ import Foundation
 import Observation
 
 extension ShoppingItemEditorView {
+    @MainActor
     @Observable
     final class Observed {
         var name: String
         var quantity: String
         var unit: ShoppingUnit
+        let error = ErrorState()
 
         private var values: Values? {
             let trimmedName = name.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -24,9 +26,9 @@ extension ShoppingItemEditorView {
             return Values(name: trimmedName, quantity: quantity, unit: unit)
         }
 
-        private let onSave: (Values) -> Void
+        private let onSave: (Values) throws -> Void
 
-        init(mode: Mode, onSave: @escaping (Values) -> Void) {
+        init(mode: Mode, onSave: @escaping (Values) throws -> Void) {
             self.onSave = onSave
             switch mode {
             case .create:
@@ -48,8 +50,9 @@ extension ShoppingItemEditorView {
 
         func handleSave() -> Bool {
             guard let values else { return false }
-            onSave(values)
-            return true
+            return error.handle {
+                try onSave(values)
+            }
         }
     }
 }

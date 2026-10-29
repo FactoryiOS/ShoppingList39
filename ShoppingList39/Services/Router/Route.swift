@@ -15,13 +15,13 @@ enum Route: Hashable {
 
 /// Экраны, которые показываются модально через `showModal`.
 enum Modal: Identifiable {
-    case itemEditor(ShoppingItemEditorView.Mode)
+    case itemEditor(ShoppingItemEditorView.Mode, list: ListItem)
 
     var id: String {
         switch self {
-        case .itemEditor(.create):
-            "itemEditor.create"
-        case .itemEditor(.edit(let item)):
+        case .itemEditor(.create, let list):
+            "itemEditor.create.\(list.id)"
+        case .itemEditor(.edit(let item), _):
             "itemEditor.edit.\(item.id)"
         }
     }

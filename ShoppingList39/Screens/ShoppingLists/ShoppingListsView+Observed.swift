@@ -6,35 +6,55 @@
 //
 import SwiftUI
 import Observation
+import SwiftData
 
+@MainActor
 @Observable
-class ShoppingListsViewObserved {
-    
-    var items: [ShoppingItem] = [
-        ShoppingItem.mock,
-        ShoppingItem.mock,
-        ShoppingItem.mock
-    ]
-    
+final class ShoppingListsViewObserved {
+    let list: ListItem
     var searchText = ""
-    
+    var itemToDelete: ShoppingItem?
+    var isDeletePresented = false
+    var isDeletePurchasedPresented = false
+    let error = ErrorState()
+
+    init(list: ListItem) {
+        self.list = list
+    }
+
     var filteredItems: [ShoppingItem] {
+        let items = list.sortedItems
         if searchText.isEmpty {
             return items
         } else {
             return items.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
         }
     }
-    
-    func togglePurchase(for item: ShoppingItem) {
+
+    func togglePurchase(for item: ShoppingItem, context: ModelContext) {
         withAnimation {
-            item.isPurchased.toggle()
+            _ = error.handle {
+                try ShoppingListStore(context: context).togglePurchased(item)
+            }
         }
     }
-    
-    func deleteItem(_ item: ShoppingItem) {
-        // TODO: Добавить действие  удаления
-        print("Удален товар: \(item.name)")
+
+    func handleRequestDelete(_ item: ShoppingItem) {
+        itemToDelete = item
+        isDeletePresented = true
+    }
+
+    func handleDelete(context: ModelContext) {
+        guard let item = itemToDelete else { return }
+        defer { itemToDelete = nil }
+        error.handle {
+            try ShoppingListStore(context: context).deleteItem(item)
+        }
+    }
+
+    func handleDeletePurchased(context: ModelContext) {
+        error.handle {
+            try ShoppingListStore(context: context).deletePurchasedItems(from: list)
+        }
     }
 }
-

@@ -8,4 +8,5 @@
 enum AppStorageKeys {
     static let hasSeenWelcome = "hasSeenWelcome"
     static let appTheme = "appTheme"
+    static let isListsSortedByName = "isListsSortedByName"
 }

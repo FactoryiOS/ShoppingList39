@@ -18,6 +18,13 @@ extension MainView {
         var isDeletePresented = false
         let error = ErrorState()
 
+        func displayedLists(_ lists: [ListItem], isSortedByName: Bool) -> [ListItem] {
+            guard isSortedByName else { return lists }
+            return lists.sorted {
+                $0.name.localizedStandardCompare($1.name) == .orderedAscending
+            }
+        }
+
         func handleCopy(_ list: ListItem, context: ModelContext) {
             error.handle {
                 try ShoppingListStore(context: context).duplicateList(list)

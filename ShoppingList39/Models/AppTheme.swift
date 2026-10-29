@@ -14,12 +14,9 @@ enum AppTheme: String {
 
     var colorScheme: ColorScheme? {
         switch self {
-        case .light:
-                .light
-        case .dark:
-                .dark
-        case .system:
-            nil
+        case .light: .light
+        case .dark: .dark
+        case .system: nil
         }
     }
 }

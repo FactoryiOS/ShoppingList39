@@ -36,9 +36,5 @@ extension MainView {
                 try ShoppingListStore(context: context).deleteList(list)
             }
         }
-        
-        func handleMenuTap() {
-            print("Открыть меню")
-        }
     }
 }

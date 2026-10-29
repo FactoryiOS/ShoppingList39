@@ -7,27 +7,31 @@
 
 import SwiftUI
 
-private enum AppStorageKeys {
-    static let hasSeenWelcome = "hasSeenWelcome"
-}
-
 struct RootView: View {
     @AppStorage(AppStorageKeys.hasSeenWelcome)
     private var hasSeenWelcome = false
 
+    @AppStorage(AppStorageKeys.appTheme)
+    private var themeRawValue = AppTheme.system.rawValue
+
     var body: some View {
-        if hasSeenWelcome {
-            RouterView {
-                MainView()
-            }
-            .transition(.opacity)
-        } else {
-            WelcomeView {
-                withAnimation {
-                    hasSeenWelcome = true
+        Group {
+            if hasSeenWelcome {
+                RouterView {
+                    MainView()
                 }
+                .transition(.opacity)
+            } else {
+                WelcomeView {
+                    withAnimation {
+                        hasSeenWelcome = true
+                    }
+                }
+                .transition(.opacity)
             }
-            .transition(.opacity)
         }
+        .preferredColorScheme(
+            (AppTheme(rawValue: themeRawValue) ?? .system).colorScheme
+        )
     }
 }

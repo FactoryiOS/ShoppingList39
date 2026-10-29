@@ -1,5 +1,5 @@
 //
-//  SwiftUIView.swift
+//  ListColor.swift
 //  ShoppingList39
 //
 //  Created by Наринэ  Овсепян on 16.10.2026.

@@ -11,26 +11,25 @@ struct MainView: View {
     @State private var observed: Observed
 
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(Router.self) private var router
 
     init(observed: Observed? = nil) {
         _observed = State(initialValue: observed ?? Observed())
     }
 
     var body: some View {
-        NavigationStack {
-            content
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background(backgroundColor)
-                .safeAreaInset(edge: .bottom) {
-                    createButton
+        content
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background(backgroundColor)
+            .safeAreaInset(edge: .bottom) {
+                createButton
+            }
+            .navigationTitle("Мои списки")
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    MenuButton()
                 }
-                .navigationTitle("Мои списки")
-                .toolbar {
-                    ToolbarItem(placement: .topBarTrailing) {
-                        ThemeMenu()
-                    }
-                }
-        }
+            }
     }
 
     // MARK: - Content
@@ -47,13 +46,18 @@ struct MainView: View {
     private var listView: some View {
         List {
             ForEach(observed.lists) { list in
-                ListItemCell(item: list)
-                    .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
-                    .listRowSeparator(.hidden)
-                    .listRowBackground(Color.clear)
-                    .swipeActions(edge: .trailing, allowsFullSwipe: false) {
-                        swipeButtons(for: list)
-                    }
+                Button {
+                    router.push(.shoppingList(list))
+                } label: {
+                    ListItemCell(item: list)
+                }
+                .buttonStyle(.plain)
+                .listRowInsets(EdgeInsets(top: 0, leading: 16, bottom: 0, trailing: 16))
+                .listRowSeparator(.hidden)
+                .listRowBackground(Color.clear)
+                .swipeActions(edge: .trailing, allowsFullSwipe: false) {
+                    swipeButtons(for: list)
+                }
             }
         }
         .listStyle(.plain)
@@ -78,7 +82,8 @@ struct MainView: View {
         .tint(colorScheme == .dark ? .systemsDarkOrange : .systemsLightOrange)
 
         Button {
-            observed.handleEdit(list)
+            // TODO: передавать цвет списка, когда он появится в ListItem
+            router.push(.listEditor(.edit(name: list.name, color: .blue, icon: list.icon)))
         } label: {
             Image(systemName: "square.and.pencil")
         }
@@ -89,7 +94,7 @@ struct MainView: View {
 
     private var createButton: some View {
         BaseButton(title: "Создать список") {
-            observed.handleCreateList()
+            router.push(.listEditor(.create))
         }
         .padding(.horizontal, 16)
         .padding(.bottom, 20)
@@ -105,9 +110,13 @@ struct MainView: View {
 // MARK: - Preview
 
 #Preview("Empty") {
-    MainView(observed: .init(lists: []))
+    RouterView {
+        MainView(observed: .init(lists: []))
+    }
 }
 
 #Preview("Data") {
-    MainView(observed: .init(lists: ListItem.mocks))
+    RouterView {
+        MainView(observed: .init(lists: ListItem.mocks))
+    }
 }

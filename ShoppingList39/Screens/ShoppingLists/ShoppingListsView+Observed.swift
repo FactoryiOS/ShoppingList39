@@ -36,9 +36,4 @@ class ShoppingListsViewObserved {
         // TODO: Добавить действие  удаления
         print("Удален товар: \(item.name)")
     }
-    
-    func editItem(_ item: ShoppingItem) {
-        // TODO: Добавить действие  изменения
-        print("Редактирование товара: \(item.name)")
-    }
 }

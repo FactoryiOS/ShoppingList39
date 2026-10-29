@@ -1,5 +1,5 @@
 //
-//  ThemeMenu.swift
+//  MenuButton.swift
 //  ShoppingList39
 //
 //  Created by Олег Сергеевич on 28.10.2026.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ThemeMenu: View {
+struct MenuButton: View {
     @AppStorage(AppStorageKeys.appTheme)
     private var themeRawValue = AppTheme.system.rawValue
 

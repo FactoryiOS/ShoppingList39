@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BaseButton: View {
-    let title: String
+    let title: LocalizedStringKey
     var isActive = true
     let action: () -> Void
 

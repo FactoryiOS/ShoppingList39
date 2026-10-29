@@ -45,7 +45,7 @@ struct ListIconPicker: View {
         }
         .buttonStyle(.plain)
         .animation(.easeInOut(duration: 0.2), value: isSelected)
-        .accessibilityLabel(icon.rawValue)
+        .accessibilityLabel(icon.title)
         .accessibilityAddTraits(isSelected ? .isSelected : [])
     }
 

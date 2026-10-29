@@ -53,11 +53,11 @@ extension ListEditorView {
             }
         }
 
-        var title: String {
+        var title: LocalizedStringKey {
             isEditing ? "Редактировать список" : "Создать список"
         }
 
-        var buttonTitle: String {
+        var buttonTitle: LocalizedStringKey {
             isEditing ? "Сохранить" : "Создать"
         }
 

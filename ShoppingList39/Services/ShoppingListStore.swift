@@ -50,7 +50,7 @@ final class ShoppingListStore {
             return copy
         }
         let copy = ListItem(
-            name: "\(list.name) (копия)",
+            name: String(localized: "\(list.name) (копия)"),
             icon: list.icon,
             color: list.color,
             items: items
@@ -150,8 +150,8 @@ final class ShoppingListStore {
 
         var errorDescription: String? {
             switch self {
-            case .emptyName: "Введите название."
-            case .invalidQuantity: "Количество должно быть больше нуля."
+            case .emptyName: String(localized: "Введите название.")
+            case .invalidQuantity: String(localized: "Количество должно быть больше нуля.")
             }
         }
     }

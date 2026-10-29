@@ -7,9 +7,20 @@ final class ListItem {
     var id: UUID
     var name: String
     var icon: ListIcon
+    var color: ListColor
+    var createdAt: Date = Date()
 
-    @Relationship(deleteRule: .cascade)
+    @Relationship(deleteRule: .cascade, inverse: \ShoppingItem.list)
     var items: [ShoppingItem]
+
+    var sortedItems: [ShoppingItem] {
+        items.sorted {
+            if $0.sortOrder != $1.sortOrder {
+                return $0.sortOrder < $1.sortOrder
+            }
+            return $0.createdAt < $1.createdAt
+        }
+    }
 
     var purchasedCount: Int {
         items.filter(\.isPurchased).count
@@ -23,11 +34,13 @@ final class ListItem {
         id: UUID = UUID(),
         name: String,
         icon: ListIcon = .cart,
+        color: ListColor = .blue,
         items: [ShoppingItem] = []
     ) {
         self.id = id
         self.name = name
         self.icon = icon
+        self.color = color
         self.items = items
     }
 

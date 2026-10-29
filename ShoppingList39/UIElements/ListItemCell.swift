@@ -31,7 +31,7 @@ struct ListItemCell: View {
             .font(.system(size: 24))
             .foregroundStyle(.black)
             .frame(width: 48, height: 48)
-            .background(.additionalBlue, in: Circle())
+            .background(item.color.color, in: Circle())
     }
 
     private var title: some View {

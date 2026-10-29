@@ -9,6 +9,9 @@ final class ShoppingItem: Identifiable {
     var quantity: Double
     var unit: ShoppingUnit
     var isPurchased: Bool
+    var createdAt: Date = Date()
+    var sortOrder: Int = 0
+    var list: ListItem?
 
     init(
         id: UUID = UUID(),

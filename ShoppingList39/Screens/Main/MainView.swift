@@ -6,16 +6,19 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MainView: View {
-    @State private var observed: Observed
+    @Query(sort: [
+        SortDescriptor(\ListItem.createdAt, order: .reverse),
+        SortDescriptor(\ListItem.name)
+    ])
+    private var lists: [ListItem]
+    @State private var observed = Observed()
 
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.modelContext) private var modelContext
     @Environment(Router.self) private var router
-
-    init(observed: Observed? = nil) {
-        _observed = State(initialValue: observed ?? Observed())
-    }
 
     var body: some View {
         content
@@ -30,13 +33,24 @@ struct MainView: View {
                     MenuButton()
                 }
             }
+            .alert("Удаление списка", isPresented: $observed.isDeletePresented) {
+                Button("Отменить", role: .cancel) {
+                    observed.listToDelete = nil
+                }
+                Button("Удалить", role: .destructive) {
+                    observed.handleDelete(context: modelContext)
+                }
+            } message: {
+                Text("Вы действительно хотите удалить список?")
+            }
+            .errorAlert("Не удалось сохранить изменения", state: observed.error)
     }
 
     // MARK: - Content
 
     @ViewBuilder
     private var content: some View {
-        if observed.isEmpty {
+        if lists.isEmpty {
             EmptyStateView(config: .lists)
         } else {
             listView
@@ -45,7 +59,7 @@ struct MainView: View {
 
     private var listView: some View {
         List {
-            ForEach(observed.lists) { list in
+            ForEach(lists) { list in
                 Button {
                     router.push(.shoppingList(list))
                 } label: {
@@ -68,22 +82,21 @@ struct MainView: View {
     @ViewBuilder
     private func swipeButtons(for list: ListItem) -> some View {
         Button {
-            observed.handleDelete(list)
+            observed.handleRequestDelete(list)
         } label: {
             Image(systemName: "trash")
         }
         .tint(colorScheme == .dark ? .systemsDarkRed : .systemsLightRed)
 
         Button {
-            observed.handleCopy(list)
+            observed.handleCopy(list, context: modelContext)
         } label: {
             Image(systemName: "plus.square.on.square")
         }
         .tint(colorScheme == .dark ? .systemsDarkOrange : .systemsLightOrange)
 
         Button {
-            // TODO: передавать цвет списка, когда он появится в ListItem
-            router.push(.listEditor(.edit(name: list.name, color: .blue, icon: list.icon)))
+            router.push(.listEditor(.edit(list)))
         } label: {
             Image(systemName: "square.and.pencil")
         }
@@ -111,12 +124,24 @@ struct MainView: View {
 
 #Preview("Empty") {
     RouterView {
-        MainView(observed: .init(lists: []))
+        MainView()
     }
+    .modelContainer(for: [ListItem.self, ShoppingItem.self], inMemory: true)
 }
 
 #Preview("Data") {
-    RouterView {
-        MainView(observed: .init(lists: ListItem.mocks))
+    let container: ModelContainer? = {
+        guard let container = try? ModelContainer(
+            for: ListItem.self, ShoppingItem.self,
+            configurations: ModelConfiguration(isStoredInMemoryOnly: true)
+        ) else { return nil }
+        ListItem.mocks.forEach { container.mainContext.insert($0) }
+        return container
+    }()
+    if let container {
+        RouterView {
+            MainView()
+        }
+        .modelContainer(container)
     }
 }

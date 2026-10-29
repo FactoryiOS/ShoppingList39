@@ -8,9 +8,16 @@
 import SwiftUI
 
 extension ListEditorView {
-    enum Mode: Hashable {
+    enum Mode: Hashable, Identifiable {
         case create
-        case edit(name: String, color: ListColor, icon: ListIcon)
+        case edit(ListItem)
+
+        var id: String {
+            switch self {
+            case .create: "create"
+            case .edit(let list): list.id.uuidString
+            }
+        }
     }
 
     struct Result {
@@ -25,11 +32,12 @@ extension ListEditorView {
         var name: String
         var color: ListColor?
         var icon: ListIcon?
+        let error = ErrorState()
 
         private let mode: Mode
-        private let onSave: (Result) -> Void
+        private let onSave: (Result) throws -> Void
 
-        init(mode: Mode, onSave: @escaping (Result) -> Void) {
+        init(mode: Mode, onSave: @escaping (Result) throws -> Void) {
             self.mode = mode
             self.onSave = onSave
 
@@ -38,10 +46,10 @@ extension ListEditorView {
                 name = ""
                 color = nil
                 icon = nil
-            case let .edit(name, color, icon):
-                self.name = name
-                self.color = color
-                self.icon = icon
+            case .edit(let list):
+                name = list.name
+                color = list.color
+                icon = list.icon
             }
         }
 
@@ -61,9 +69,11 @@ extension ListEditorView {
             !trimmedName.isEmpty && color != nil && icon != nil
         }
 
-        func handleSave() {
-            guard let color, let icon, !trimmedName.isEmpty else { return }
-            onSave(Result(name: trimmedName, color: color, icon: icon))
+        func handleSave() -> Bool {
+            guard let color, let icon, !trimmedName.isEmpty else { return false }
+            return error.handle {
+                try onSave(Result(name: trimmedName, color: color, icon: icon))
+            }
         }
 
         private var isEditing: Bool {

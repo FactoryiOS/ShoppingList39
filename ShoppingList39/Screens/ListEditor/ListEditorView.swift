@@ -13,7 +13,7 @@ struct ListEditorView: View {
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.dismiss) private var dismiss
 
-    init(mode: Mode, onSave: @escaping (Result) -> Void) {
+    init(mode: Mode, onSave: @escaping (Result) throws -> Void) {
         _observed = State(initialValue: Observed(mode: mode, onSave: onSave))
     }
 
@@ -31,13 +31,15 @@ struct ListEditorView: View {
         .scrollDismissesKeyboard(.interactively)
         .safeAreaInset(edge: .bottom) {
             BaseButton(title: observed.buttonTitle, isActive: observed.isSaveActive) {
-                observed.handleSave()
-                dismiss()
+                if observed.handleSave() {
+                    dismiss()
+                }
             }
             .padding(.horizontal, 16)
             .padding(.bottom, 20)
         }
         .background(backgroundColor)
+        .errorAlert("Не удалось сохранить список", state: observed.error)
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarLeading) {
@@ -70,14 +72,14 @@ struct ListEditorView: View {
 
 #Preview("Edit Light") {
     NavigationStack {
-        ListEditorView(mode: .edit(name: "Новый год", color: .blue, icon: .snowflake)) { _ in }
+        ListEditorView(mode: .edit(.mock)) { _ in }
     }
     .preferredColorScheme(.light)
 }
 
 #Preview("Edit Dark") {
     NavigationStack {
-        ListEditorView(mode: .edit(name: "Новый год", color: .blue, icon: .snowflake)) { _ in }
+        ListEditorView(mode: .edit(.mock)) { _ in }
     }
     .preferredColorScheme(.dark)
 }

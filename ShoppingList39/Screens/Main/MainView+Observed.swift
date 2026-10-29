@@ -7,28 +7,34 @@
 
 import Foundation
 import Observation
+import SwiftData
 
 extension MainView {
 
     @MainActor
     @Observable
     final class Observed {
-        var lists: [ListItem]
+        var listToDelete: ListItem?
+        var isDeletePresented = false
+        let error = ErrorState()
 
-        var isEmpty: Bool {
-            lists.isEmpty
+        func handleCopy(_ list: ListItem, context: ModelContext) {
+            error.handle {
+                try ShoppingListStore(context: context).duplicateList(list)
+            }
         }
 
-        init(lists: [ListItem] = []) {
-            self.lists = lists
+        func handleRequestDelete(_ list: ListItem) {
+            listToDelete = list
+            isDeletePresented = true
         }
 
-        func handleCopy(_ list: ListItem) {
-            print("Копировать: \(list.name)")
-        }
-
-        func handleDelete(_ list: ListItem) {
-            print("Удалить: \(list.name)")
+        func handleDelete(context: ModelContext) {
+            guard let list = listToDelete else { return }
+            defer { listToDelete = nil }
+            error.handle {
+                try ShoppingListStore(context: context).deleteList(list)
+            }
         }
     }
 }

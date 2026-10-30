@@ -38,25 +38,25 @@ final class ShoppingListStore {
 
     @discardableResult
     func duplicateList(_ list: ListItem) throws -> ListItem {
-        let items = list.sortedItems.enumerated().map { index, item in
-            let copy = ShoppingItem(
-                name: item.name,
-                quantity: item.quantity,
-                unit: item.unit,
-                isPurchased: item.isPurchased
-            )
-            copy.createdAt = item.createdAt
-            copy.sortOrder = index
-            return copy
-        }
         let copy = ListItem(
-            name: "\(list.name) (копия)",
+            name: String(localized: "\(list.name) (копия)"),
             icon: list.icon,
-            color: list.color,
-            items: items
+            color: list.color
         )
         try save {
             context.insert(copy)
+            for (index, item) in list.sortedItems.enumerated() {
+                let itemCopy = ShoppingItem(
+                    name: item.name,
+                    quantity: item.quantity,
+                    unit: item.unit,
+                    isPurchased: item.isPurchased
+                )
+                itemCopy.createdAt = item.createdAt
+                itemCopy.sortOrder = index
+                context.insert(itemCopy)
+                copy.items.append(itemCopy)
+            }
         }
         return copy
     }
@@ -118,6 +118,16 @@ final class ShoppingListStore {
         }
     }
 
+    func uncheckAllItems(in list: ListItem) throws {
+        let purchasedItems = list.items.filter(\.isPurchased)
+        guard !purchasedItems.isEmpty else { return }
+        try save {
+            for item in purchasedItems {
+                item.isPurchased = false
+            }
+        }
+    }
+
     func togglePurchased(_ item: ShoppingItem) throws {
         try save {
             item.isPurchased.toggle()
@@ -150,8 +160,8 @@ final class ShoppingListStore {
 
         var errorDescription: String? {
             switch self {
-            case .emptyName: "Введите название."
-            case .invalidQuantity: "Количество должно быть больше нуля."
+            case .emptyName: String(localized: "Введите название.")
+            case .invalidQuantity: String(localized: "Количество должно быть больше нуля.")
             }
         }
     }

@@ -11,13 +11,13 @@ import SwiftData
 struct ShoppingListsView: View {
     let list: ListItem
 
-    @State private var observed: ShoppingListsViewObserved
+    @State private var observed: Observed
     @Environment(\.modelContext) private var modelContext
     @Environment(Router.self) private var router
 
     init(list: ListItem) {
         self.list = list
-        _observed = State(initialValue: ShoppingListsViewObserved(list: list))
+        _observed = State(initialValue: Observed(list: list))
     }
 
     var body: some View {
@@ -34,7 +34,7 @@ struct ShoppingListsView: View {
             .padding(.horizontal, 16)
             .padding(.vertical, 20)
         }
-        .navigationTitle("")
+        .navigationTitle(list.name)
         .navigationBarTitleDisplayMode(.inline)
         .searchable(text: $observed.searchText, prompt: "Поиск")
         .toolbar {
@@ -44,9 +44,19 @@ struct ShoppingListsView: View {
             }
             ToolbarItem(placement: .navigationBarTrailing) {
                 Menu {
-                    Button("Редактировать список", systemImage: "square.and.pencil") {
-                        router.push(.listEditor(.edit(list)))
+                    Toggle(isOn: $observed.isSortedByName) {
+                        Label("Сортировать по Алфавиту", systemImage: "arrow.up.arrow.down")
                     }
+                    ShareLink(item: observed.shareText) {
+                        Label("Поделиться", systemImage: "square.and.arrow.up")
+                    }
+                    .disabled(list.items.isEmpty)
+                    Button {
+                        observed.handleUncheckAll(context: modelContext)
+                    } label: {
+                        Label("Снять отметки со всех товаров", systemImage: "arrow.triangle.2.circlepath")
+                    }
+                    .disabled(list.purchasedCount == 0)
                     Button(role: .destructive) {
                         observed.isDeletePurchasedPresented = true
                     } label: {
@@ -55,8 +65,7 @@ struct ShoppingListsView: View {
                     .disabled(list.purchasedCount == 0)
                 } label: {
                     Image(systemName: "ellipsis.circle")
-                        .font(.system(size: 20, weight: .regular))
-                        .foregroundColor(.primary)
+                        .foregroundStyle(.primary)
                 }
             }
         }

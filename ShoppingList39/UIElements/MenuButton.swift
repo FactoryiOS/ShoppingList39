@@ -11,6 +11,9 @@ struct MenuButton: View {
     @AppStorage(AppStorageKeys.appTheme)
     private var themeRawValue = AppTheme.system.rawValue
 
+    @AppStorage(AppStorageKeys.isListsSortedByName)
+    private var isSortedByName = false
+
     var body: some View {
         Menu {
             Menu {
@@ -31,9 +34,7 @@ struct MenuButton: View {
                 )
             }
 
-            Button {
-                // TODO: Add logic for sorting alphabetically
-            } label: {
+            Toggle(isOn: $isSortedByName) {
                 Label(
                     "Сортировать по Алфавиту",
                     systemImage: "arrow.up.arrow.down"

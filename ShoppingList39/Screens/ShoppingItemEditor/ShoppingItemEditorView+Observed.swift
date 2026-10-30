@@ -28,19 +28,25 @@ extension ShoppingItemEditorView {
 
         private let onSave: (Values) throws -> Void
         private let otherItems: [ShoppingItem]
+        private let knownNames: [String]
+        private let isCreating: Bool
+        private var selectedSuggestion: String?
 
         init(
             mode: Mode,
             existingItems: [ShoppingItem] = [],
+            knownNames: [String] = [],
             onSave: @escaping (Values) throws -> Void
         ) {
             self.onSave = onSave
+            self.knownNames = knownNames
             switch mode {
             case .create:
                 name = ""
                 quantity = ""
                 unit = .pieces
                 otherItems = existingItems
+                isCreating = true
             case .edit(let item):
                 name = item.name
                 unit = item.unit
@@ -48,7 +54,23 @@ extension ShoppingItemEditorView {
                     .number.grouping(.never).precision(.fractionLength(0...))
                 )
                 otherItems = existingItems.filter { $0.id != item.id }
+                isCreating = false
             }
+        }
+
+        /// Подсказки названия: только при создании товара и пока подсказка не выбрана.
+        var suggestions: [String] {
+            guard isCreating, name != selectedSuggestion else { return [] }
+            return ProductSuggestions.suggestions(
+                for: name,
+                history: knownNames,
+                excluding: otherItems.map(\.name)
+            )
+        }
+
+        func handleSelectSuggestion(_ suggestion: String) {
+            selectedSuggestion = suggestion
+            name = suggestion
         }
         
         var isDuplicate: Bool {
@@ -60,7 +82,7 @@ extension ShoppingItemEditorView {
         }
 
         var nameError: String? {
-            isDuplicate ? "Этот товар уже есть в списке, добавьте другой" : nil
+            isDuplicate ? String(localized: "Этот товар уже есть в списке, добавьте другой") : nil
         }
 
         var isSaveEnabled: Bool {

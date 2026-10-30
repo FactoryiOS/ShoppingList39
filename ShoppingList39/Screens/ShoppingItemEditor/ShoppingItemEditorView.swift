@@ -237,8 +237,10 @@ private struct ShoppingItemEditorPreview: View {
     @State private var isPresented = true
 
     var body: some View {
-        Button("Открыть форму товара") {
+        Button {
             isPresented = true
+        } label: {
+            Text(verbatim: "Открыть форму товара")
         }
         .sheet(isPresented: $isPresented) {
             ShoppingItemEditorView(

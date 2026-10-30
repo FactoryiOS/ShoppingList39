@@ -1,1158 +1,1174 @@
 {
-  "sourceLanguage" : "en",
-  "strings" : {
-    "" : {
-
-    },
-    "%@ (копия)" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ (copy)"
+  "sourceLanguage": "en",
+  "strings": {
+    "%@ (копия)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (copy)"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "%@ (копия)"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ (копия)"
           }
         }
       }
     },
-    "%lld/%@" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "%1$lld/%2$@"
+    "%lld/%@": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld/%2$@"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$lld/%2$@"
           }
         }
       }
     },
-    "Важное" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Important"
+    "Важное": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Important"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Важное"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Важное"
           }
         }
       }
     },
-    "Введите название списка" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enter list name"
+    "Введите название списка": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter list name"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Введите название списка"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Введите название списка"
           }
         }
       }
     },
-    "Введите название." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Enter a name."
+    "Введите название.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter a name."
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Введите название."
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Введите название."
           }
         }
       }
     },
-    "Воздушный шар" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Balloon"
+    "Воздушный шар": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Balloon"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Воздушный шар"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Воздушный шар"
           }
         }
       }
     },
-    "Вы действительно хотите удалить все купленные товары?" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Are you sure you want to delete all purchased items?"
+    "Вы действительно хотите удалить все купленные товары?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Are you sure you want to delete all purchased items?"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вы действительно хотите удалить все купленные товары?"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вы действительно хотите удалить все купленные товары?"
           }
         }
       }
     },
-    "Вы действительно хотите удалить список?" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Are you sure you want to delete this list?"
+    "Вы действительно хотите удалить список?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Are you sure you want to delete this list?"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вы действительно хотите удалить список?"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вы действительно хотите удалить список?"
           }
         }
       }
     },
-    "Вы действительно хотите удалить товар?" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Are you sure you want to delete this item?"
+    "Вы действительно хотите удалить товар?": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Are you sure you want to delete this item?"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Вы действительно хотите удалить товар?"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Вы действительно хотите удалить товар?"
           }
         }
       }
     },
-    "Выберите дизайн" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Choose a design"
+    "Выберите дизайн": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose a design"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выберите дизайн"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выберите дизайн"
           }
         }
       }
     },
-    "Выберите цвет" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Choose a color"
+    "Выберите цвет": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose a color"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Выберите цвет"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Выберите цвет"
           }
         }
       }
     },
-    "г" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "g"
+    "Гаечный ключ": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Wrench"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "г"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Гаечный ключ"
           }
         }
       }
     },
-    "Гаечный ключ" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Wrench"
+    "Гантель": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dumbbell"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Гаечный ключ"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Гантель"
           }
         }
       }
     },
-    "Гантель" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dumbbell"
+    "Геймпад": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gamepad"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Гантель"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Геймпад"
           }
         }
       }
     },
-    "Геймпад" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gamepad"
+    "Готово": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Done"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Геймпад"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Готово"
           }
         }
       }
     },
-    "Готово" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Done"
+    "Давайте спланируем покупки!": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Let's plan your shopping!"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Готово"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Давайте спланируем покупки!"
           }
         }
       }
     },
-    "Давайте спланируем покупки!" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Let's plan your shopping!"
+    "Добавить товар": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Item"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Давайте спланируем покупки!"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Добавить товар"
           }
         }
       }
     },
-    "Добавить товар" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Add Item"
+    "Добро пожаловать!": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Welcome!"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Добавить товар"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Добро пожаловать!"
           }
         }
       }
     },
-    "Добро пожаловать!" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Welcome!"
+    "Еда": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Food"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Добро пожаловать!"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Еда"
           }
         }
       }
     },
-    "Еда" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Food"
+    "Здания": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Buildings"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Еда"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Здания"
           }
         }
       }
     },
-    "Здания" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Buildings"
+    "Изменить": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Здания"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Изменить"
           }
         }
       }
     },
-    "Изменить" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Edit"
+    "Календарь": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendar"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Изменить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Календарь"
           }
         }
       }
     },
-    "Календарь" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Calendar"
+    "Количество": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quantity"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Календарь"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Количество"
           }
         }
       }
     },
-    "кг" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "kg"
+    "Количество должно быть больше нуля.": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quantity must be greater than zero."
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "кг"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Количество должно быть больше нуля."
           }
         }
       }
     },
-    "Количество" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quantity"
+    "Кровать": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bed"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Количество"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Кровать"
           }
         }
       }
     },
-    "Количество должно быть больше нуля." : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Quantity must be greater than zero."
+    "Лапа": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Paw"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Количество должно быть больше нуля."
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Лапа"
           }
         }
       }
     },
-    "Кровать" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bed"
+    "Машина": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Car"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Кровать"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Машина"
           }
         }
       }
     },
-    "л" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "l"
+    "Мои списки": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "My Lists"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "л"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Мои списки"
           }
         }
       }
     },
-    "Лапа" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Paw"
+    "Название товара": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Item name"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Лапа"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Название товара"
           }
         }
       }
     },
-    "Машина" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Car"
+    "Начать": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Get Started"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Машина"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Начать"
           }
         }
       }
     },
-    "мл" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ml"
+    "Начните добавлять товары": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start adding items"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "мл"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Начните добавлять товары"
           }
         }
       }
     },
-    "Мои списки" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "My Lists"
+    "Не удалось сохранить изменения": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't save changes"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Мои списки"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Не удалось сохранить изменения"
           }
         }
       }
     },
-    "Название товара" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Item name"
+    "Не удалось сохранить список": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't save the list"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Название товара"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Не удалось сохранить список"
           }
         }
       }
     },
-    "Начать" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Get Started"
+    "Не удалось сохранить товар": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Couldn't save the item"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Начать"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Не удалось сохранить товар"
           }
         }
       }
     },
-    "Начните добавлять товары" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Start adding items"
+    "Никогда не забывайте, что нужно купить": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Never forget what to buy"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Начните добавлять товары"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Никогда не забывайте, что нужно купить"
           }
         }
       }
     },
-    "Не удалось сохранить изменения" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Couldn't save changes"
+    "ОК": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Не удалось сохранить изменения"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ОК"
           }
         }
       }
     },
-    "Не удалось сохранить список" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Couldn't save the list"
+    "Отменить": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Не удалось сохранить список"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Отменить"
           }
         }
       }
     },
-    "Не удалось сохранить товар" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Couldn't save the item"
+    "Очистить": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Clear"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Не удалось сохранить товар"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Очистить"
           }
         }
       }
     },
-    "Никогда не забывайте, что нужно купить" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Never forget what to buy"
+    "Палитра": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Palette"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Никогда не забывайте, что нужно купить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Палитра"
           }
         }
       }
     },
-    "ОК" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "OK"
+    "Пластырь": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bandage"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ОК"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Пластырь"
           }
         }
       }
     },
-    "Открыть форму товара" : {
-
+    "Подарок": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gift"
+          }
+        },
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Подарок"
+          }
+        }
+      }
     },
-    "Отменить" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cancel"
+    "Поделиться": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Share"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Отменить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Поделиться"
           }
         }
       }
     },
-    "Очистить" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Clear"
+    "Поиск": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Очистить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Поиск"
           }
         }
       }
     },
-    "Палитра" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Palette"
+    "Портфель": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Briefcase"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Палитра"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Портфель"
           }
         }
       }
     },
-    "Пластырь" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bandage"
+    "Редактировать": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Пластырь"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Редактировать"
           }
         }
       }
     },
-    "Подарок" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Gift"
+    "Редактировать список": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit List"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Подарок"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Редактировать список"
           }
         }
       }
     },
-    "Поделиться" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Share"
+    "Самолёт": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Airplane"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Поделиться"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Самолёт"
           }
         }
       }
     },
-    "Поиск" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Search"
+    "Светлая": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Light"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Поиск"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Светлая"
           }
         }
       }
     },
-    "Портфель" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Briefcase"
+    "Системная": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "System"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Портфель"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Системная"
           }
         }
       }
     },
-    "Редактировать" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Edit"
+    "Снежинка": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Snowflake"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Редактировать"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Снежинка"
           }
         }
       }
     },
-    "Редактировать список" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Edit List"
+    "Снять отметки со всех товаров": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Uncheck All Items"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Редактировать список"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Снять отметки со всех товаров"
           }
         }
       }
     },
-    "Самолёт" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Airplane"
+    "Создавайте списки и не переживайте о покупках": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create lists and stop worrying about shopping"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Самолёт"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Создавайте списки и не переживайте о покупках"
           }
         }
       }
     },
-    "Светлая" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Light"
+    "Создайте свой первый список": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create your first list"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Светлая"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Создайте свой первый список"
           }
         }
       }
     },
-    "Системная" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "System"
+    "Создание товара": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New Item"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Системная"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Создание товара"
           }
         }
       }
     },
-    "Снежинка" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Snowflake"
+    "Создать": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Снежинка"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Создать"
           }
         }
       }
     },
-    "Создавайте списки и не переживайте о покупках" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Create lists and stop worrying about shopping"
+    "Создать список": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create List"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Создавайте списки и не переживайте о покупках"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Создать список"
           }
         }
       }
     },
-    "Создайте свой первый список" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Create your first list"
+    "Сортировать по Алфавиту": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sort Alphabetically"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Создайте свой первый список"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сортировать по Алфавиту"
           }
         }
       }
     },
-    "Создание товара" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "New Item"
+    "Сохранить": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Создание товара"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Сохранить"
           }
         }
       }
     },
-    "Создать" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Create"
+    "Тележка": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cart"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Создать"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Тележка"
           }
         }
       }
     },
-    "Создать список" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Create List"
+    "Тема": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Theme"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Создать список"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Тема"
           }
         }
       }
     },
-    "Сортировать по алфавиту" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Sort Alphabetically"
+    "Темная": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dark"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сортировать по алфавиту"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Темная"
           }
         }
       }
     },
-    "Сохранить" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Save"
+    "Удаление купленных товаров": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete Purchased Items"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Сохранить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Удаление купленных товаров"
           }
         }
       }
     },
-    "Тележка" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Cart"
+    "Удаление списка": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete List"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Тележка"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Удаление списка"
           }
         }
       }
     },
-    "Тема" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Theme"
+    "Удаление товара": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete Item"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Тема"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Удаление товара"
           }
         }
       }
     },
-    "Темная" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Dark"
+    "Удалить": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Темная"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Удалить"
           }
         }
       }
     },
-    "Удаление купленных товаров" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delete Purchased Items"
+    "Удалить купленные товары": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete Purchased Items"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Удаление купленных товаров"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Удалить купленные товары"
           }
         }
       }
     },
-    "Удаление списка" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delete List"
+    "Установить тему": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Set Theme"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Удаление списка"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Установить тему"
           }
         }
       }
     },
-    "Удаление товара" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delete Item"
+    "Этот товар уже есть в списке, добавьте другой": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This item is already in the list, add another one"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Удаление товара"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Этот товар уже есть в списке, добавьте другой"
           }
         }
       }
     },
-    "Удалить" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delete"
+    "г": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "g"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Удалить"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "г"
           }
         }
       }
     },
-    "Удалить купленные товары" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delete Purchased Items"
+    "кг": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "kg"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Удалить купленные товары"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "кг"
           }
         }
       }
     },
-    "Установить тему" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Set Theme"
+    "л": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "l"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Установить тему"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "л"
           }
         }
       }
     },
-    "шт" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "pcs"
+    "мл": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ml"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "шт"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "мл"
           }
         }
       }
     },
-    "Этот товар уже есть в списке, добавьте другой" : {
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "This item is already in the list, add another one"
+    "шт": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "pcs"
           }
         },
-        "ru" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Этот товар уже есть в списке, добавьте другой"
+        "ru": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "шт"
           }
         }
       }
     }
   },
-  "version" : "1.0"
+  "version": "1.0"
 }

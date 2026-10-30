@@ -3,7 +3,7 @@ import SwiftData
 
 /// Товар в списке покупок.
 @Model
-final class ShoppingItem: Identifiable {
+nonisolated final class ShoppingItem: Identifiable {
     var id: UUID
     var name: String
     var quantity: Double

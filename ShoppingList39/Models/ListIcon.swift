@@ -12,7 +12,7 @@ import SwiftUI
 /// `var icon: ListIcon = .cart`.
 /// Использование: для отображения — `icon.image`,
 /// для построения интерфейса выбора — `ListIcon.allCases`.
-enum ListIcon: String, CaseIterable, Identifiable, Codable {
+nonisolated enum ListIcon: String, CaseIterable, Identifiable, Codable {
     case snowflake
     case airplane
     case important

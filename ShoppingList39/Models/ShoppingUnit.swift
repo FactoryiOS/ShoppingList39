@@ -1,6 +1,6 @@
 import Foundation
 
-enum ShoppingUnit: String, Codable, CaseIterable {
+nonisolated enum ShoppingUnit: String, Codable, CaseIterable {
     case pieces = "шт"
     case kilograms = "кг"
     case grams = "г"

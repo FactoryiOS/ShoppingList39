@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-enum ListColor: String, Codable, CaseIterable, Identifiable {
+nonisolated enum ListColor: String, Codable, CaseIterable, Identifiable {
     case blue
     case green
     case purple
@@ -16,6 +16,7 @@ enum ListColor: String, Codable, CaseIterable, Identifiable {
     
     var id: String { rawValue }
     
+    @MainActor
     var color: Color {
         switch self {
         case .blue:   .additionalBlue

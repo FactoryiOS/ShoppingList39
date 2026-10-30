@@ -38,25 +38,25 @@ final class ShoppingListStore {
 
     @discardableResult
     func duplicateList(_ list: ListItem) throws -> ListItem {
-        let items = list.sortedItems.enumerated().map { index, item in
-            let copy = ShoppingItem(
-                name: item.name,
-                quantity: item.quantity,
-                unit: item.unit,
-                isPurchased: item.isPurchased
-            )
-            copy.createdAt = item.createdAt
-            copy.sortOrder = index
-            return copy
-        }
         let copy = ListItem(
             name: String(localized: "\(list.name) (копия)"),
             icon: list.icon,
-            color: list.color,
-            items: items
+            color: list.color
         )
         try save {
             context.insert(copy)
+            for (index, item) in list.sortedItems.enumerated() {
+                let itemCopy = ShoppingItem(
+                    name: item.name,
+                    quantity: item.quantity,
+                    unit: item.unit,
+                    isPurchased: item.isPurchased
+                )
+                itemCopy.createdAt = item.createdAt
+                itemCopy.sortOrder = index
+                context.insert(itemCopy)
+                copy.items.append(itemCopy)
+            }
         }
         return copy
     }
@@ -114,6 +114,16 @@ final class ShoppingListStore {
             list.items.removeAll(where: \.isPurchased)
             for item in purchasedItems {
                 context.delete(item)
+            }
+        }
+    }
+
+    func uncheckAllItems(in list: ListItem) throws {
+        let purchasedItems = list.items.filter(\.isPurchased)
+        guard !purchasedItems.isEmpty else { return }
+        try save {
+            for item in purchasedItems {
+                item.isPurchased = false
             }
         }
     }

@@ -69,6 +69,12 @@ extension ShoppingListsView {
             }
         }
 
+        func handleUncheckAll(context: ModelContext) {
+            error.handle {
+                try ShoppingListStore(context: context).uncheckAllItems(in: list)
+            }
+        }
+
         func handleDeletePurchased(context: ModelContext) {
             error.handle {
                 try ShoppingListStore(context: context).deletePurchasedItems(from: list)

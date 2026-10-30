@@ -36,7 +36,7 @@ struct MenuButton: View {
 
             Toggle(isOn: $isSortedByName) {
                 Label(
-                    "Сортировать по алфавиту",
+                    "Сортировать по Алфавиту",
                     systemImage: "arrow.up.arrow.down"
                 )
             }

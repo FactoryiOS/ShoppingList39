@@ -16,6 +16,9 @@ struct MainView: View {
     private var lists: [ListItem]
     @State private var observed = Observed()
 
+    @AppStorage(AppStorageKeys.isListsSortedByName)
+    private var isSortedByName = false
+
     @Environment(\.colorScheme) private var colorScheme
     @Environment(\.modelContext) private var modelContext
     @Environment(Router.self) private var router
@@ -59,7 +62,7 @@ struct MainView: View {
 
     private var listView: some View {
         List {
-            ForEach(lists) { list in
+            ForEach(observed.displayedLists(lists, isSortedByName: isSortedByName)) { list in
                 Button {
                     router.push(.shoppingList(list))
                 } label: {

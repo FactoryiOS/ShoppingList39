@@ -1,7 +1,7 @@
 import SwiftUI
 
 extension View {
-    func errorAlert(_ title: String, state: ErrorState) -> some View {
+    func errorAlert(_ title: LocalizedStringKey, state: ErrorState) -> some View {
         let message = state.message ?? ""
         let isPresented = Binding(
             get: { state.message != nil },

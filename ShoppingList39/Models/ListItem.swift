@@ -3,7 +3,7 @@ import SwiftData
 
 /// Список покупок. 
 @Model
-final class ListItem {
+nonisolated final class ListItem {
     var id: UUID
     var name: String
     var icon: ListIcon

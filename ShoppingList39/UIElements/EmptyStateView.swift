@@ -1,5 +1,5 @@
 //
-//  EmptyPlaceholderView.swift
+//  EmptyStateView.swift
 //  ShoppingList39
 //
 //  Created by Наринэ  Овсепян on 10.10.2026.
@@ -9,8 +9,8 @@ import SwiftUI
 
 struct EmptyStateConfig {
     let imageName: String
-    let title: String
-    let subtitle: String
+    let title: LocalizedStringResource
+    let subtitle: LocalizedStringResource
     
     static let lists = EmptyStateConfig(
         imageName: "notepadWithGlasses",

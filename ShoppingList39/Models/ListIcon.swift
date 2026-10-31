@@ -12,7 +12,7 @@ import SwiftUI
 /// `var icon: ListIcon = .cart`.
 /// Использование: для отображения — `icon.image`,
 /// для построения интерфейса выбора — `ListIcon.allCases`.
-enum ListIcon: String, CaseIterable, Identifiable, Codable {
+nonisolated enum ListIcon: String, CaseIterable, Identifiable, Codable {
     case snowflake
     case airplane
     case important
@@ -59,6 +59,29 @@ enum ListIcon: String, CaseIterable, Identifiable, Codable {
 
     var image: Image {
         Image(systemName: systemName)
+    }
+
+    var title: String {
+        switch self {
+        case .snowflake: String(localized: "Снежинка")
+        case .airplane: String(localized: "Самолёт")
+        case .important: String(localized: "Важное")
+        case .balloon: String(localized: "Воздушный шар")
+        case .bandage: String(localized: "Пластырь")
+        case .dumbbell: String(localized: "Гантель")
+        case .bed: String(localized: "Кровать")
+        case .briefcase: String(localized: "Портфель")
+        case .wrench: String(localized: "Гаечный ключ")
+        case .buildings: String(localized: "Здания")
+        case .calendar: String(localized: "Календарь")
+        case .gift: String(localized: "Подарок")
+        case .palette: String(localized: "Палитра")
+        case .cart: String(localized: "Тележка")
+        case .car: String(localized: "Машина")
+        case .food: String(localized: "Еда")
+        case .pawprint: String(localized: "Лапа")
+        case .gamepad: String(localized: "Геймпад")
+        }
     }
 }
 

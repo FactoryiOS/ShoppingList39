@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct BaseTextField: View {
-    let placeholder: String
+    let placeholder: LocalizedStringKey
     @Binding var text: String
     var errorMessage: String?
 
